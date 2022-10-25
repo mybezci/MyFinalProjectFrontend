@@ -1,0 +1,18 @@
+<p>product works!</p>
+
+<!-- <div>
+  Welcome {{ user }} to {{ title }}
+  {{ product1.productName }}
+  <ul>
+    <li *ngFor="let product of products">{{product.productName}}</li>
+  </ul>
+</div> -->
+
+<table class="table">
+    <tr *ngFor="let product of products">
+        <td>{{product.productId}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.categoryId}}</td>
+        <td>{{product.unitPrice}}</td>
+    </tr>
+ </table>

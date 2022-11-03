@@ -12,6 +12,15 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Ürün ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aradiginiz ürünü girin">
+</div>
+<div *ngIf="filterText.length>2" class="alert alert-success">
+  {{filterText}} aradik
+
+</div>
+
 <table *ngIf="dataLoaded!=false" class="table">
   <thead>
     <tr>
@@ -19,14 +28,20 @@
       <th>Name</th>
       <th>Category</th>
       <th>Price</th>
+      <th>KDVli</th>
       <th>Unit in Stock</th>
+      <th></th>
     </tr>
   </thead>
-    <tr *ngFor="let product of products">
+  <tbody>
+    <tr *ngFor="let product of products |filterPipe:filterText">
         <td>{{product.productId}}</td>
-        <td>{{product.productName}}</td>
+        <td>{{product.productName |uppercase }}</td>
         <td>{{product.categoryId}}</td>
-        <td>{{product.unitPrice}}</td>
+        <td>{{product.unitPrice |currency }}</td>
+        <td>{{product.unitPrice |vatAdded:10  |currency}}</td>
         <td>{{product.unitInStock}}</td>
+        <td><button (click)="addToCart(product)" type="button" class="btn btn-success" >Ekle</button></td>
       </tr>
+    </tbody>
  </table>

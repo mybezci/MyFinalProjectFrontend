@@ -14,6 +14,8 @@ export class ProductComponent implements OnInit {
 
   dataLoaded = false;
 
+  filterText = "";
+
   constructor(private productService: ProductService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -40,6 +42,16 @@ export class ProductComponent implements OnInit {
       this.products = response.data
       this.dataLoaded = true;
     })
+  }
+
+  addToCart(product:Product){
+    if(product.productId === 1){
+      alert("Bu ürün eklenemez");
+    }
+    else{
+      alert(product.productName + " sepete eklendi")
+    }
+    console.log(product)
   }
 
 

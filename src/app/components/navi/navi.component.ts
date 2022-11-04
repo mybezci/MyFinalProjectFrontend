@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartItem } from 'src/app/models/cartItem';
 
 @Component({
   selector: 'app-navi',

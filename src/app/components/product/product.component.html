@@ -41,7 +41,26 @@
         <td>{{product.unitPrice |currency }}</td>
         <td>{{product.unitPrice |vatAdded:10  |currency}}</td>
         <td>{{product.unitInStock}}</td>
-        <td><button (click)="addToCart(product)" type="button" class="btn btn-success" >Ekle</button></td>
+        <td>
+
+          <button (click)="addToCart(product)" type="button" class="btn btn-success" id="liveToastBtn">Ekle</button>
+          <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Hello</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Sepete Eklendi
+              </div>
+            </div>
+          </div>
+        
+        </td>
+        
       </tr>
     </tbody>
  </table>
+
+

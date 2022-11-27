@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.createLoginForm();
   }
 
   createLoginForm(){
